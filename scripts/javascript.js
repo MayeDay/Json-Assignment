@@ -1,26 +1,83 @@
-var data = null;
-	var xhr = new XMLHttpRequest();
+let playlist = [{
+  "title": "So Sexy",
+	"artist": "Twista",
+	"genre": "R&B"
+},{
+  "title": "Coffee",
+	"artist": "Miguel",
+	"genre": "R&B"
 
-	xhr.addEventListener("readystatechange", function () {
-		if (this.readyState === this.DONE) {
-			console.log(this.responseText);
+},{
+  "title": "Rollout",
+	"artist": "Ludacris",
+	"genre": "Hip Hop"
+
+},{
+  "title": "Sexy Back",
+	"artist": "Justin Timberlake",
+	"genre": "R&B"
+
+},{
+  "title": "Black Skinhead",
+	"artist": "Kanye West",
+	"genre": "R&B"
+
+},{
+  "title": "Fall Apart",
+	"artist": "Post Malone",
+	"genre": "R&B"
+
+},{
+  "title": "Redbone",
+	"artist": "Childish Gambino",
+	"genre": "R&B"
+
+},{
+  "title": "Lotus Flower Bomb",
+	"artist": "Wale",
+	"genre": "R&B"
+
+},{
+  "title": "Cartier Harden",
+	"artist": "City the Mask",
+	"genre": "Rap"
+
+},{
+  "title": "Empire State of Mind",
+	"artist": "Jay-Z",
+	"genre": "R&B"
+
+}];
+
+function onSearch(){
+	event.preventDefault();
+	let searchList = [];
+	let input = document.querySelector(".form input").value;
+
+	for(let x = 0; x < playlist.length; x++){
+		if(input.toUpperCase() == playlist[x].artist.toUpperCase() || input.toUpperCase() == playlist[x].title.toUpperCase() || input.toUpperCase() == playlist[x].genre){
+			searchList.push(playlist[x]);
 		}
-	});
+	}
 
-	xhr.withCredentials = false;
+	if(searchList.length < 1){
+		alert("No Information found :(");
+	}
 
-	xhr.open("GET", `https://shazam.p.rapidapi.com/search?locale=en-US&offset=0&limit=5&term=Miguel`);
-	xhr.setRequestHeader("x-rapidapi-host", "shazam.p.rapidapi.com");
-	xhr.setRequestHeader("x-rapidapi-key", "6acaa9b411msh3afc4cb86f9b723p154d56jsn7fb7d2d006c3");
+	for(let x = 0; x < searchList.length; x++){
+		let row = document.createElement("tr");
+		let data = document.createElement("td");
+		let data1 = document.createElement("td");
+		let data2 = document.createElement("td");
 
-
-function searchMusic(){
-	let search = document.querySelector(" .form input").value;
-
-	fetch(`https://shazam.p.rapidapi.com/search?locale=en-US&offset=0&limit=5&term=${search}`)
-	.then(respone => respone.json)
-	.then(data = console.log(data));
-
+		data.innerHTML = searchList[x].title
+		data1.innerHTML = searchList[x].artist
+		data2.innerHTML = searchList[x].genre;
+		row.appendChild(data);
+		row.appendChild(data1);
+		row.appendChild(data2);
+		document.querySelector("table").appendChild(row);
+	}
 }
 
 
