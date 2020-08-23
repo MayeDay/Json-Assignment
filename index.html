@@ -9,24 +9,24 @@
 </head>
 <body>
   <div class="container">
-    <div class="inputs">
       <div class="form">
         <form>
-          <label for="title">Search your music</label>
-          <input type="text" name="search" id="seach">
-          <button class="btn-primary"type="submit" onclick="onSearch()">Search</button>
-          <div class="results">
-          <table>
-            <tr>
-              <td class="pl-3 pr-3">Title</td>
-              <td class="pl-3 pr-3">Artist</td>
-              <td class="pl-3 pr-3">Genre</td>
-            </tr>
-          </table>
+          <div class="inputs pt-3">
+            <label for="title">Search your music</label>
+            <input type="text" name="search" id="seach">
+            <button class="btn-primary"type="submit" onclick="onSearch()">Search</button>
           </div>
         </form>
       </div>
-    </div>
+      <div class="results mt-2">
+        <table class="pb-5" id="myTable">
+          <tr>
+            <td class="pl-3 pr-3">Title</td>
+            <td class="pl-3 pr-3">Artist</td>
+            <td class="pl-3 pr-3">Genre</td>
+          </tr>
+        </table>
+        </div>
   </div>
   
 </body>

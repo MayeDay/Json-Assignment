@@ -52,10 +52,18 @@ let playlist = [{
 function onSearch(){
 	event.preventDefault();
 	let searchList = [];
+
+	let current = document.querySelectorAll(".container tr").length;
+
+	for(let x = current-1; x > 0; x--){
+		document.getElementById("myTable").deleteRow(x);
+	};
+
 	let input = document.querySelector(".form input").value;
 
+
 	for(let x = 0; x < playlist.length; x++){
-		if(input.toUpperCase() == playlist[x].artist.toUpperCase() || input.toUpperCase() == playlist[x].title.toUpperCase() || input.toUpperCase() == playlist[x].genre){
+		if(input.toUpperCase() == playlist[x].artist.toUpperCase() || input.toUpperCase() == playlist[x].title.toUpperCase() || input.toUpperCase() == playlist[x].genre.toUpperCase()){
 			searchList.push(playlist[x]);
 		}
 	}
@@ -63,6 +71,7 @@ function onSearch(){
 	if(searchList.length < 1){
 		alert("No Information found :(");
 	}
+
 
 	for(let x = 0; x < searchList.length; x++){
 		let row = document.createElement("tr");
