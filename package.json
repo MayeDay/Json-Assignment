@@ -1,0 +1,22 @@
+{
+  "name": "json",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MayeDay/Json-Assignment.git"
+  },
+  "author": "James A Maye III",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MayeDay/Json-Assignment/issues"
+  },
+  "homepage": "https://github.com/MayeDay/Json-Assignment#readme",
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}
